@@ -1,4 +1,4 @@
-from flask import Flask, send_from_directory
+from flask import Flask, send_from_directory, jsonify
 from flask_cors import CORS
 from pymongo import MongoClient
 import os
@@ -14,7 +14,7 @@ def create_app():
     app.config['UPLOAD_FOLDER'] = os.path.join(app.root_path, 'static', 'uploads')
     app.config['ALLOWED_EXTENSIONS'] = {'png', 'jpg', 'jpeg', 'gif', 'webp'}
     
-    # ✅ FIXED: Configure CORS properly - SIMPLIFIED VERSION
+    # Configure CORS
     CORS(app, 
          origins=["http://localhost:5173", "http://localhost:3000"],
          methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
@@ -23,7 +23,6 @@ def create_app():
     
     # MongoDB Atlas Connection
     MONGODB_URI = os.getenv('MONGODB_URI')
-    
     if not MONGODB_URI:
         raise Exception("❌ MONGODB_URI not found in .env file")
     
@@ -38,20 +37,17 @@ def create_app():
         raise e
     
     # Create upload directory if it doesn't exist
-    upload_folder = app.config['UPLOAD_FOLDER']
-    os.makedirs(upload_folder, exist_ok=True)
-    print(f"📁 Upload directory ready: {upload_folder}")
+    os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
+    print(f"📁 Upload directory ready: {app.config['UPLOAD_FOLDER']}")
     
-    # Serve static files
+    # Serve uploaded static files
     @app.route('/static/uploads/<path:filename>')
     def serve_uploaded_files(filename):
-        upload_folder = app.config['UPLOAD_FOLDER']
-        return send_from_directory(upload_folder, filename)
+        return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
     
     # Import and register routes
     try:
         from .routes import auth, users, products, customers, orders, admin
-        
         app.register_blueprint(auth.bp)
         app.register_blueprint(users.bp)
         app.register_blueprint(products.bp)
@@ -63,14 +59,14 @@ def create_app():
         print(f"❌ Route import error: {e}")
         raise e
     
-    # Import cart routes separately
+    # Import cart routes separately with fallback
     try:
         from .routes.cart import bp as cart_bp
         app.register_blueprint(cart_bp)
         print("✅ Cart routes registered!")
     except ImportError as e:
         print(f"❌ Cart routes import error: {e}")
-        from flask import Blueprint, jsonify
+        from flask import Blueprint
         cart_bp = Blueprint('cart', __name__, url_prefix='/api/cart')
         
         @cart_bp.route('/<user_id>', methods=['GET'])
@@ -84,7 +80,7 @@ def create_app():
         app.register_blueprint(cart_bp)
         print("⚠️ Using fallback cart routes")
     
-    # ✅ FIXED: Add global OPTIONS handler for all routes
+    # Global OPTIONS handler for all routes
     @app.before_request
     def handle_options():
         from flask import request
@@ -100,15 +96,15 @@ def create_app():
                 response.headers[key] = value
             return response
     
-    # Add health check endpoint
+    # ✅ Health check endpoint (Render-ready)
     @app.route('/api/health', methods=['GET'])
     def health_check():
         return jsonify({
-            'status': 'healthy', 
-            'message': 'Server is running',
-            'timestamp': '2024-01-01T00:00:00Z'
-        })
+            'status': 'ok',
+            'message': 'Server is running'
+        }), 200
     
+    # Home route
     @app.route('/')
     def home():
         return jsonify({
