@@ -1,0 +1,270 @@
+/* =========================================================
+   Old Goods Thrift — Customers Page (Unified with Dashboard)
+   ========================================================= */
+
+/* GLOBAL RESET/CONSISTENCY (Based on your dashboard's * selector) */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif; /* UNIFIED FONT */
+}
+
+/* GENERAL DASHBOARD LAYOUT */
+body {
+  margin: 0;
+  background-color: #f9f9f9;
+}
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Changed from 100vh to ensure content doesn't get cut off */
+}
+
+/* HEADER */
+.header {
+  /* Unified: padding, border-bottom, background, removed box-shadow for consistency */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px; /* UNIFIED PADDING */
+  border-bottom: 1px solid #ddd; /* UNIFIED BORDER */
+  background-color: #fff;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  width: 40px;
+  height: 40px;
+}
+
+.logo h2 {
+  color: #ee4d2d; /* UNIFIED COLOR */
+  font-weight: bold; /* UNIFIED FONT-WEIGHT */
+  font-size: 22px; /* UNIFIED FONT-SIZE */
+}
+
+.logo span {
+  color: #555; /* UNIFIED COLOR */
+}
+
+.help-link {
+  color: #ee4d2d;
+  font-weight: bold;
+  text-decoration: none;
+  transition: text-decoration 0.2s;
+}
+
+.help-link:hover {
+  text-decoration: underline; /* UNIFIED HOVER STATE */
+}
+
+/* MAIN AREA */
+.dashboard-main {
+  display: flex;
+  flex: 1;
+  min-height: 85vh; /* UNIFIED MIN-HEIGHT */
+  background: #f9f9f9;
+}
+
+/* SIDEBAR */
+.dashboard-sidebar {
+  width: 220px; /* UNIFIED WIDTH */
+  background-color: #fff;
+  padding: 20px;
+  border-right: 1px solid #ddd; /* UNIFIED BORDER */
+}
+
+.dashboard-sidebar h3 {
+  color: #ee4d2d;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.dashboard-sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.dashboard-sidebar li {
+  margin: 12px 0; /* UNIFIED MARGIN */
+}
+
+.dashboard-sidebar a {
+  text-decoration: none;
+  color: #333; /* UNIFIED COLOR */
+  padding: 8px 10px; /* UNIFIED PADDING */
+  border-radius: 4px;
+  display: block;
+  transition: background 0.2s ease;
+  font-weight: normal; /* Adjusted to be consistent with dashboard links */
+}
+
+.dashboard-sidebar a:hover,
+.dashboard-sidebar a.active {
+  background: #ee4d2d;
+  color: white;
+}
+
+/* CONTENT AREA */
+.dashboard-content {
+  flex: 1;
+  padding: 40px; /* UNIFIED PADDING */
+}
+
+.dashboard-content h1 {
+  font-size: 28px; /* UNIFIED FONT-SIZE */
+  margin-bottom: 5px; /* UNIFIED MARGIN-BOTTOM */
+  color: #333;
+}
+
+.dashboard-content p {
+  color: #666; /* UNIFIED COLOR */
+  margin-bottom: 30px; /* UNIFIED MARGIN-BOTTOM */
+}
+
+/* CONTROLS (SEARCH, ADD BUTTONS, ETC.) */
+.customer-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px; /* Adjusted to match dashboard p margin */
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.customer-controls input {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+button.primary,
+button.secondary {
+  border: none;
+  border-radius: 4px;
+  padding: 8px 14px;
+  font-weight: bold; /* Adjusted for better visibility */
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button.primary {
+  background: #ee4d2d;
+  color: #fff;
+}
+button.primary:hover {
+  background: #d94424;
+}
+
+button.secondary {
+  background: #e9e9e9;
+  color: #333;
+}
+button.secondary:hover {
+  background: #dcdcdc;
+}
+
+/* TABLE STYLES */
+.customer-table-container {
+  background: white;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
+}
+
+.customer-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.customer-table th,
+.customer-table td {
+  padding: 14px 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+.customer-table thead {
+  background: #ee4d2d;
+  color: #fff;
+}
+
+.customer-table th {
+  font-weight: bold; /* UNIFIED FONT-WEIGHT with dashboard h2/help-link */
+}
+
+.customer-table tr:hover {
+  background: #fff5f3;
+}
+
+.customer-table td {
+  color: #333;
+}
+
+.customer-table img {
+  width: 50px;
+  height: 50px;
+  border-radius: 6px;
+  object-fit: cover;
+  border: 1px solid #eee;
+}
+
+/* ACTION BUTTONS */
+.row-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.edit-btn {
+  background: #4caf50;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.edit-btn:hover {
+  background: #43a047;
+}
+
+.delete-btn {
+  background: #f44336;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.delete-btn:hover {
+  background: #d32f2f;
+}
+
+/* EMPTY STATE */
+.empty-state td {
+  color: #888;
+  font-style: italic;
+  text-align: center;
+  padding: 30px 0;
+}
+
+/* FOOTER */
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  padding: 15px; /* UNIFIED PADDING */
+  border-top: 1px solid #ddd; /* UNIFIED BORDER */
+  color: #555; /* UNIFIED COLOR */
+  font-size: 14px; /* UNIFIED FONT-SIZE */
+}

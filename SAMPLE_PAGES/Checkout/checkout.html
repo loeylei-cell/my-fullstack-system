@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout | Old Goods Thrift</title>
+  <link rel="stylesheet" href="checkout.css">
+ 
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-left">
+      <img src="../../OMS-REACT/public/Shop Icon.jpg" alt="Logo" class="logo">
+      <h2>Old Goods Thrift</h2>
+    </div>
+    <a href="../Cart/cart.html" class="back-link">Back to Cart</a>
+  </header>
+
+  <main class="checkout-container">
+    <h2>Checkout</h2>
+
+    <section class="checkout-section address-section">
+      <h3>Delivery Address</h3>
+      <div class="address-display">
+        <div>
+          <strong>Recipient:</strong>
+          Lawrence Galve
+        </div>
+        <div>
+          <strong>Contact:</strong>
+          09*****6789
+        </div>
+        <div>
+          <strong>Address:</strong>
+          123 Aguinaldo street, Brgy. Mayapa, Marilao, Bulacan
+        </div>
+      </div>
+    </section>
+
+    <section class="checkout-section items-section">
+      <h3>Order Items</h3>
+
+      <div class="order-item" data-price="110.00">
+        <img src="../Shopping_Window/p7.jpg" alt="Classic Stripe Polo">
+        <div class="details">
+          <h4>Classic Stripe Polo</h4>
+          <p>₱110.00</p>
+        </div>
+        <input type="number" class="qty" min="1" value="1">
+      </div>
+
+      <div class="order-item" data-price="120.00">
+        <img src="../Shopping_Window/p2.jpg" alt="Checkmate Polo">
+        <div class="details">
+          <h4>Checkmate Polo</h4>
+          <p>₱120.00</p>
+        </div>
+        <input type="number" class="qty" min="1" value="1">
+      </div>
+
+    </section>
+
+    <section class="checkout-section payment-section">
+      <h3>Payment Method</h3>
+      <label><input type="radio" name="payment" value="paymaya" required> Paymaya</label><br>
+      <label><input type="radio" name="payment" value="gcash" required> GCash</label>
+    </section>
+
+    <section class="checkout-section summary-section">
+      <h3>Order Summary</h3>
+      <div class="summary-item">
+        <span>Subtotal</span>
+        <span id="subtotal">₱0.00</span>
+      </div>
+      <div class="summary-item">
+        <span>Shipping Fee</span>
+        <span id="shipping">₱50.00</span>
+      </div>
+      <div class="summary-total">
+        <span>Total</span>
+        <span id="total">₱0.00</span>
+      </div>
+
+      <button class="place-order-btn">Place Order</button>
+    </section>
+  </main>
+
+  <script>
+    // ===== DYNAMIC SUMMARY =====
+    const qtyInputs = document.querySelectorAll('.qty');
+    const subtotalEl = document.getElementById('subtotal');
+    const totalEl = document.getElementById('total');
+    const SHIPPING_FEE = 50.00; // Keep as a float
+
+    function updateSummary() {
+      let subtotal = 0;
+      document.querySelectorAll('.order-item').forEach(item => {
+        // Ensure both item.dataset.price and item.querySelector('.qty').value are correct
+        const qty = parseInt(item.querySelector('.qty').value) || 0; 
+        const price = parseFloat(item.dataset.price) || 0;
+        subtotal += price * qty;
+      });
+
+      subtotalEl.textContent = `₱${subtotal.toFixed(2)}`;
+      totalEl.textContent = `₱${(subtotal + SHIPPING_FEE).toFixed(2)}`;
+    }
+
+    // Attach listeners to all quantity inputs
+    qtyInputs.forEach(input => input.addEventListener('input', updateSummary));
+    
+    // Run once on load to show initial totals
+    updateSummary();
+
+    // Future backend: Send selected items + total + address when clicking place order
+    document.querySelector('.place-order-btn').addEventListener('click', (e) => {
+      e.preventDefault();
+      
+      // Basic check for payment selection
+      const paymentSelected = document.querySelector('input[name="payment"]:checked');
+      if (!paymentSelected) {
+          alert('Please select a payment method (Paymaya or GCash) to place your order.');
+          return;
+      }
+
+      alert('Order placed successfully! Please check your details for payment confirmation.');
+    });
+  </script>
+
+</body>
+</html>

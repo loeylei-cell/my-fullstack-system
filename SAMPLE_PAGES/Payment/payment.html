@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Payment | Old Goods Thrift</title>
+  <link rel="stylesheet" href="payment.css" />
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header">
+    <div class="logo">
+      <img src="../../OMS-REACT/public/Shop Icon.jpg" alt="Shop Logo" />
+      <h2>Old Goods Thrift</h2>
+    </div>
+    <a class="back-link" href="../Shopping_Window/shopping.html">Back to Shop</a>
+  </header>
+
+  <!-- ===== PAYMENT CONTAINER ===== -->
+  <main class="payment-container">
+    <div class="payment-card">
+      <h2>Payment Method</h2>
+      <p>Please select your preferred payment option:</p>
+
+      <div class="payment-options">
+        <label>
+          <input type="radio" name="payment" value="gcash" /> GCash
+        </label>
+        <label>
+          <input type="radio" name="payment" value="paymaya" /> PayMaya
+        </label>
+      </div>
+
+      <div class="qr-section" id="qrSection" style="display:none;">
+        <h3>Scan to Pay</h3>
+        <img id="qrImage" src="qr.png" alt="QR Code" class="qr-img" />
+      </div>
+
+      <div class="total-section">
+        <h3>Amount to Pay</h3>
+        <span id="totalAmount">₱280.00</span>
+      </div>
+
+      <button id="confirmBtn" class="btn confirm-btn" disabled>Confirm Payment</button>
+    </div>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-section">
+      <h4>Old Goods Thrift</h4>
+      <p>Unique finds at affordable prices.</p>
+    </div>
+    <div class="footer-section">
+      <p>© 2025 Old Goods Thrift. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="payment.js"></script>
+</body>
+</html>

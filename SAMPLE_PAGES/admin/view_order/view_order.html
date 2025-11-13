@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Order Details - Thrift Shop</title>
+    <link rel="stylesheet" href="view_order.css" />
+</head>
+
+<body>
+
+    <div class="dashboard">
+        <header class="header">
+            <div class="logo">
+                <img src="../../../OMS-REACT/public/Shop Icon.jpg" alt="Logo">
+                <h2>Old Goods <span>Thrift</span></h2>
+            </div>
+            <a href="#" class="help-link">Logout</a>
+        </header>
+
+        <main class="dashboard-main">
+
+            <aside class="dashboard-sidebar">
+                <h3>Welcome!</h3>
+                <ul>
+                    <li><a href="../dashboard/dashboard.html">📋 Dashboard</a></li>
+                    <li><a href="../products/products.html">👕 Add Product</a></li>
+                    <li><a href="../order_status/orders.html">📦 Orders Status</a></li>
+                    <li><a href="../customer/customer.html">🧑 Customers</a></li>
+                    <li><a href="../discounts/discount.html">🔖 Discounts</a></li>
+                    <li><a href="../view_order/view_order.html" class="active">📨 View Orders</a></li>
+                </ul>
+            </aside>
+
+            <div class="dashboard-content">
+                <div class="controls-and-title">
+                    <h1 id="order-detail-title">Order Details</h1>
+                </div>
+                <p>Detailed view of the order, customer, and purchased items.</p>
+
+                <div class="order-details-grid">
+                    
+                    <div class="col-left">
+                        
+                        <div class="detail-card">
+                            <h3 class="card-title">Order Summary</h3>
+                            <div class="summary-line">
+                                <span>Status:</span>
+                                <span id="summary-status" class="status-badge status-Delivered">---</span>
+                            </div>
+                            <div class="summary-line">
+                                <span>Order Date:</span>
+                                <span id="summary-date">xxxx-xx-xx</span>
+                            </div>
+                            <div class="summary-line">
+                                <span>Payment:</span>
+                                <span id="summary-payment">---</span>
+                            </div>
+                            <div class="summary-line total-line">
+                                <span>Total Amount:</span>
+                                <span id="summary-total" class="total-amount">₱---</span>
+                            </div>
+                            <div class="row-actions top-margin">
+                                <button class="primary" id="update-status-btn">Update Status</button>
+                            </div>
+                        </div>
+
+                        <div class="detail-card customer-card">
+                            <h3 class="card-title">Customer Details</h3>
+                            <p><strong>Name:</strong> <span id="customer-name">---</span></p>
+                            <p><strong>Contact Number:</strong> <span id="customer-number">---</span></p>
+                            <p><strong>Email:</strong> <span id="customer-email">---</span></p>
+                            <p><strong>Shipping Address:</strong> <span id="customer-address">---</span></p>
+                        </div>
+                    </div>
+
+                    <div class="col-right">
+                        <div class="detail-card">
+                            <h3 class="card-title">Items Ordered</h3>
+                            <table class="items-table" id="items-table-body">
+                                <thead>
+                                    <tr>
+                                        <th>Item</th>
+                                        <th class="text-right">Price</th>
+                                        <th class="text-right">Qty</th>
+                                        <th class="text-right">Subtotal</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            &copy; 2025 THRIFT Goods. All rights reserved.
+        </footer>
+    </div>
+
+    <script src="view_order.js"></script>
+</body>
+
+</html>

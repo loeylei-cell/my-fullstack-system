@@ -1,0 +1,306 @@
+/*
+|--------------------------------------------------------------------------
+| CHECKOUT/PROFILE STYLES (Merged and Cleaned)
+|--------------------------------------------------------------------------
+*/
+
+/* ===== GLOBAL RESET & BASE STYLES ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  /* Using the slightly warmer background from the second block */
+  background-color: #fffaf9; 
+  color: #333;
+}
+
+/* ===== HEADER ===== */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  padding: 15px 40px;
+  /* Using the distinct Shopee-like color for the border */
+  border-bottom: 0.1px solid #dadada; 
+  position: sticky;
+  top: 0;
+  z-index: 1000; /* Ensure header stays on top */
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header-left .logo {
+  width: 40px;
+  height: 40px;
+}
+
+.header-left h2 {
+  color: #ee4d2d;
+  font-size: 22px;
+}
+
+.back-link {
+  color: #ee4d2d;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+  border: 1px solid #ee4d2d;
+  padding: 6px 12px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.back-link:hover {
+  background-color: #ee4d2d;
+  color: #fff;
+}
+
+/* ===== CHECKOUT PAGE LAYOUT (Specific to the checkout.html structure) ===== */
+.checkout-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.checkout-container h2 {
+    font-size: 26px;
+    color: #ee4d2d;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+}
+
+.checkout-section {
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 1px solid #f0f0f0;
+    border-radius: 8px;
+}
+
+.checkout-section h3 {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 15px;
+    border-left: 4px solid #ee4d2d;
+    padding-left: 10px;
+}
+
+/* --- ADDRESS DISPLAY --- */
+/* Styles for the static address (as requested in the prompt) */
+.address-display {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+.address-display > div {
+    font-size: 14px;
+    color: #444;
+}
+.address-display strong {
+    font-weight: bold;
+    color: #333;
+    margin-right: 5px;
+}
+
+
+/* --- ORDER ITEMS --- */
+.order-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.order-item:last-child {
+    border-bottom: none;
+}
+
+.order-item img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.order-item .details {
+    flex-grow: 1;
+}
+
+.order-item .details h4 {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 4px;
+}
+
+.order-item .details p {
+    font-size: 14px;
+    color: #ee4d2d;
+    font-weight: bold;
+}
+
+.order-item .qty {
+    width: 60px;
+    padding: 8px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+
+/* --- PAYMENT METHOD --- */
+.payment-section label {
+    display: inline-block;
+    padding: 10px 15px;
+    margin-right: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.payment-section input[type="radio"] {
+    margin-right: 8px;
+    accent-color: #ee4d2d; /* Colors the radio button itself */
+}
+
+.payment-section label:hover,
+.payment-section input[type="radio"]:checked + label {
+    border-color: #ee4d2d;
+    box-shadow: 0 0 5px rgba(238, 77, 45, 0.3);
+}
+
+/* Hiding the default radio text on the label */
+.payment-section label input[type="radio"] {
+    display: none;
+}
+
+.payment-section label {
+    position: relative;
+    padding-left: 30px; /* Space for custom radio button */
+}
+
+/* Custom radio button appearance */
+.payment-section label::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 14px;
+    height: 14px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+}
+
+.payment-section input[type="radio"]:checked + label::before {
+    border-color: #ee4d2d;
+}
+
+.payment-section input[type="radio"]:checked + label::after {
+    content: '';
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    background-color: #ee4d2d;
+    border-radius: 50%;
+}
+
+
+/* --- ORDER SUMMARY --- */
+.summary-section {
+    background-color: #fcf6f5; /* Light red/orange tint */
+    border: 1px solid #ee4d2d;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    font-size: 15px;
+    color: #666;
+}
+
+.summary-total {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0 10px;
+    margin-top: 10px;
+    border-top: 1px solid #ffd1c6;
+    font-size: 18px;
+    font-weight: bold;
+    color: #ee4d2d;
+}
+
+.place-order-btn {
+    width: 100%;
+    background-color: #ee4d2d;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    transition: 0.2s ease;
+}
+
+.place-order-btn:hover {
+    background-color: #d93f21;
+}
+
+/* ===== RESPONSIVE (Keeping your existing media query) ===== */
+@media (max-width: 900px) {
+    .checkout-container {
+        margin: 20px;
+        padding: 15px;
+    }
+
+    .header {
+        padding: 10px 20px;
+    }
+}
+
+ /* Basic CSS for the displayed address to match form input layout */
+    .address-display {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .address-display > div {
+      padding: 5px 0;
+      border-bottom: 1px dashed #eee;
+    }
+    .address-display > div:last-child {
+      border-bottom: none;
+    }
+    .address-display strong {
+      display: block;
+      color: #333;
+    }

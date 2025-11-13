@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Old Goods Thrift | Sign Up</title>
+  <link rel="stylesheet" href="signup.css" />
+  <style>
+    .error-message {
+      color: red;
+      font-size: 12px;
+      margin-top: 4px;
+      display: none;
+    }
+    input.invalid {
+      border-color: red;
+    }
+    input.valid {
+      border-color: green;
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="logo">
+      <img src="../../OMS-REACT/public/Shop Icon.jpg" alt="Shop Logo">
+      <h2>Old Goods Thrift <span>Sign Up</span></h2>
+    </div>
+    <a href="#" class="help-link">Need help?</a>
+  </header>
+
+  <!-- MAIN SECTION -->
+  <main class="main-container">
+    <section class="promo-section">
+      <h1>The Best Finds of the Year</h1>
+      <p>Bermonths of Unique Deals.</p>
+      <p><strong>'Ber' Ready to Save.</strong></p>
+    </section>
+
+    <section class="form-container">
+      <h2>Sign Up</h2>
+      <form id="signup-form">
+        <!-- Username -->
+        <input type="text" id="username" placeholder="Username" required />
+        <div id="username-error" class="error-message">Username is required.</div>
+
+        <!-- Email -->
+        <input type="email" id="email" placeholder="Email (example@gmail.com)" required />
+        <div id="email-error" class="error-message"></div>
+
+        <!-- Password -->
+        <div class="password-wrapper">
+          <input type="password" id="password" placeholder="Password (8-16 characters)" required />
+          <img src="eye-close.png" alt="Show Password" class="toggle-password" data-target="password" />
+        </div>
+        <div id="password-error" class="error-message"></div>
+
+        <!-- Confirm Password -->
+        <div class="password-wrapper">
+          <input type="password" id="confirm-password" placeholder="Confirm Password" required />
+          <img src="eye-close.png" alt="Show Password" class="toggle-password" data-target="confirm-password" />
+        </div>
+        <div id="confirm-error" class="error-message"></div>
+
+        <!-- CAPTCHA -->
+        <div class="captcha-section">
+          <canvas id="captcha-canvas" width="130" height="40"></canvas>
+          <button type="button" id="refresh-captcha">↻</button>
+        </div>
+
+        <input type="text" id="captcha-input" class="captcha-input" placeholder="Enter captcha" required />
+        <div id="captcha-error" class="error-message"></div>
+
+        <button type="submit" id="signup-btn" class="btn-signup" disabled>SIGN UP</button>
+      </form>
+
+      <p class="login-text">
+        Already have an account? <a href="../Log_In/login.html">Log In</a>
+      </p>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-section">
+      <h4>PAYMENT</h4>
+      <p>PayMaya | GCash</p>
+    </div>
+    <div class="footer-section">
+      <h4>FOLLOW US</h4>
+      <p>Facebook | Instagram | Tiktok</p>
+    </div>
+  </footer>
+
+  <script src="signup.js"></script>
+</body>
+</html>

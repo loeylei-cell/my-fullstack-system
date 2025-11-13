@@ -1,0 +1,160 @@
+/* ===== GLOBAL RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #fffaf9;
+  color: #333;
+}
+
+/* ===== HEADER ===== */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  width: 40px;
+  height: 40px;
+}
+
+.logo h2 {
+  color: #ee4d2d;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.help-link {
+  color: #ee4d2d;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.help-link:hover {
+  color: #d43b1a;
+}
+
+/* ===== ORDERS SECTION ===== */
+.orders-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  padding: 40px 20px;
+}
+
+.orders-card {
+  background: white;
+  text-align: center;
+  padding: 50px 60px;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  width: 100%;
+}
+
+.orders-card h2 {
+  font-size: 26px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.orders-card p {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 25px;
+}
+
+.empty-img {
+  width: 180px;
+  height: auto;
+  opacity: 0.85;
+  margin-bottom: 25px;
+}
+
+/* ===== BUTTONS ===== */
+.orders-actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.btn {
+  text-decoration: none;
+  padding: 10px 18px;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.back-btn {
+  background-color: #ee4d2d;
+  color: white;
+}
+
+.back-btn:hover {
+  background-color: #d43b1a;
+  transform: scale(1.05);
+}
+
+.back-link {
+  color: #ee4d2d;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+  border: 1px solid #ee4d2d;
+  padding: 6px 12px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.back-link:hover {
+  background-color: #ee4d2d;
+  color: #fff;
+}
+
+.profile-btn {
+  background-color: #fff;
+  border: 2px solid #ee4d2d;
+  color: #ee4d2d;
+}
+
+.profile-btn:hover {
+  background-color: #ee4d2d;
+  color: white;
+  transform: scale(1.05);
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #fff;
+  padding: 15px;
+  font-size: 14px;
+  color: #555;
+  border-top: 1px solid #ddd;
+}
+
+.footer-section h4 {
+  color: #ee4d2d;
+  margin-bottom: 5px;
+}

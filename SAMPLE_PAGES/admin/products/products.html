@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Old Goods Thrift | Products</title>
+  <link rel="stylesheet" href="products.css" />
+</head>
+<body>
+  <div class="dashboard">
+    <!-- HEADER -->
+    <header class="header">
+      <div class="logo">
+        <img src="../../../OMS-REACT/public/Shop Icon.jpg" alt="Logo" />
+        <h2>Old Goods <span>Thrift</span></h2>
+      </div>
+      <a href="accounts.html" class="help-link">Logout</a>
+    </header>
+
+    <main class="dashboard-main">
+      <!-- SIDEBAR -->
+      <aside class="dashboard-sidebar">
+        <h3>Welcome!</h3>
+        <ul>
+          <li><a href="../dashboard/dashboard.html">📋 Dashboard</a></li>
+                    <li><a href="../products/products.html" class="active">👕 Add Product</a></li>
+                    <li><a href="../order_status/orders.html">📦 Orders Status</a></li>
+                    <li><a href="../customer/customer.html">🧑 Customers</a></li>
+                    <li><a href="../discounts/discount.html">🔖 Discounts</a></li>
+                    <li><a href="../view_order/view_order.html">📨 View Orders</a></li>
+        </ul>
+      </aside>
+
+      <!-- CONTENT -->
+      <section class="dashboard-content">
+        <h1>Products Management</h1>
+        <p>Manage your shop’s products — add, edit, or remove items below.</p>
+
+        <div class="product-controls">
+          <input type="text" id="searchInput" placeholder="Search products..." />
+          <button id="addProductBtn" class="primary">+ Add Product</button>
+        </div>
+
+        <div class="table-wrap">
+          <table class="product-table">
+            <thead>
+              <tr>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Stock</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="productTableBody">
+              <!-- Dynamic rows will be inserted here -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>© 2025 Old Goods Thrift — Admin Dashboard</p>
+    </footer>
+  </div>
+
+  <!-- MODAL -->
+  <div class="modal" id="productModal" aria-hidden="true">
+    <div class="modal-content">
+      <h2 id="modalTitle">Add Product</h2>
+      <label for="productName">Product Name</label>
+      <input type="text" id="productName" placeholder="Enter product name" />
+
+      <label for="productCategory">Category</label>
+      <input type="text" id="productCategory" placeholder="Enter category" />
+
+      <label for="productPrice">Price (₱)</label>
+      <input type="number" id="productPrice" placeholder="Enter price" />
+
+      <label for="productStock">Stock</label>
+      <input type="number" id="productStock" placeholder="Enter stock quantity" />
+
+      <label for="productImage">Product Image</label>
+      <input type="file" id="productImage" accept="image/*" />
+
+      <div class="modal-actions">
+        <button id="cancelBtn" class="secondary">Cancel</button>
+        <button id="saveProductBtn" class="primary">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="products.js"></script>
+</body>
+</html>

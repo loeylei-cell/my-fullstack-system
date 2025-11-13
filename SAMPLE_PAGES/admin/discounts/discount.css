@@ -1,0 +1,159 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  border-bottom: 1px solid #ddd;
+  background-color: #fff;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  width: 40px;
+  height: 40px;
+}
+
+.logo h2 {
+  color: #ee4d2d;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.logo span {
+  color: #555;
+}
+
+.help-link {
+  color: #ee4d2d;
+  text-decoration: none;
+  font-weight: bold;
+}
+.help-link:hover {
+  text-decoration: underline;
+}
+
+/* MAIN */
+.dashboard-main {
+  display: flex;
+  min-height: 85vh;
+  background: #f9f9f9;
+}
+
+.dashboard-sidebar {
+  width: 220px;
+  background-color: #fff;
+  padding: 20px;
+  border-right: 1px solid #ddd;
+}
+
+.dashboard-sidebar h3 {
+  color: #ee4d2d;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.dashboard-sidebar ul {
+  list-style: none;
+}
+
+.dashboard-sidebar li {
+  margin: 12px 0;
+}
+
+.dashboard-sidebar a {
+  text-decoration: none;
+  color: #333;
+  padding: 8px 10px;
+  border-radius: 4px;
+  display: block;
+  transition: background 0.2s ease;
+}
+
+.dashboard-sidebar a:hover,
+.dashboard-sidebar a.active {
+  background: #ee4d2d;
+  color: white;
+}
+
+/* CONTENT */
+.dashboard-content {
+  flex: 1;
+  padding: 40px;
+}
+
+.dashboard-content h1 {
+  font-size: 28px;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.dashboard-content p {
+  margin-bottom: 30px;
+  color: #666;
+}
+
+.dashboard-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  color: #333;
+  padding: 20px;
+  border-radius: 6px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* CHARTS */
+.charts-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.chart-box {
+  background: #fff;
+  border-radius: 6px;
+  padding: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.chart-box h3 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+/* FOOTER */
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  padding: 15px;
+  border-top: 1px solid #ddd;
+  color: #555;
+  font-size: 14px;
+}

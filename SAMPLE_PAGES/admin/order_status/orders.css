@@ -1,0 +1,197 @@
+ * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          font-family: Arial, sans-serif;
+        }
+
+        /* GENERAL DASHBOARD LAYOUT */
+        body {
+          margin: 0;
+          background-color: #f9f9f9;
+        }
+
+        .dashboard {
+          display: flex;
+          flex-direction: column;
+          min-height: 100vh;
+        }
+
+        /* HEADER */
+        .header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 15px 50px;
+          border-bottom: 1px solid #ddd;
+          background-color: #fff;
+        }
+
+        .logo {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+        }
+
+        .logo img {
+          width: 40px;
+          height: 40px;
+        }
+
+        .logo h2 {
+          color: #ee4d2d;
+          font-weight: bold;
+          font-size: 22px;
+        }
+
+        .logo span {
+          color: #555;
+        }
+
+        .help-link {
+          color: #ee4d2d;
+          font-weight: bold;
+          text-decoration: none;
+          transition: text-decoration 0.2s;
+        }
+
+        .help-link:hover {
+          text-decoration: underline;
+        }
+
+        /* MAIN AREA */
+        .dashboard-main {
+          display: flex;
+          flex: 1;
+          min-height: 85vh;
+          background: #f9f9f9;
+        }
+
+        /* SIDEBAR */
+        .dashboard-sidebar {
+          width: 220px;
+          background-color: #fff;
+          padding: 20px;
+          border-right: 1px solid #ddd;
+        }
+
+        .dashboard-sidebar h3 {
+          color: #ee4d2d;
+          margin-bottom: 20px;
+          text-align: center;
+        }
+
+        .dashboard-sidebar ul {
+          list-style: none;
+          padding: 0;
+        }
+
+        .dashboard-sidebar li {
+          margin: 12px 0;
+        }
+
+        .dashboard-sidebar a {
+          text-decoration: none;
+          color: #333;
+          padding: 8px 10px;
+          border-radius: 4px;
+          display: block;
+          transition: background 0.2s ease;
+          font-weight: normal;
+        }
+
+        .dashboard-sidebar a:hover,
+        .dashboard-sidebar a.active {
+          background: #ee4d2d;
+          color: white;
+        }
+
+        /* CONTENT AREA */
+        .dashboard-content {
+          flex: 1;
+          padding: 40px;
+        }
+
+        .dashboard-content h1 {
+          font-size: 28px;
+          margin-bottom: 5px;
+          color: #333;
+        }
+
+        .dashboard-content p {
+          color: #666;
+          margin-bottom: 30px;
+        }
+
+        /* --- Order Status Specific Styles (leveraging table styles) --- */
+
+        /* General Table Container */
+        .order-table-container {
+            background: white;
+            border-radius: 6px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            overflow-x: auto;
+        }
+
+        .order-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        .order-table th,
+        .order-table td {
+            padding: 14px 12px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .order-table thead {
+            background: #ee4d2d;
+            color: #fff;
+        }
+
+        .order-table th {
+            font-weight: bold;
+        }
+
+        .order-table tr:hover {
+            background: #fff5f3;
+        }
+
+        .order-table td {
+            color: #333;
+        }
+
+        /* STATUS BADGES (New styles) */
+        .status-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            color: white;
+        }
+        .status-Pending {
+            background-color: #ff9800; /* Orange */
+        }
+        .status-Shipped {
+            background-color: #2196f3; /* Blue */
+        }
+        .status-Delivered {
+            background-color: #4caf50; /* Green */
+        }
+        .status-Cancelled {
+            background-color: #f44336; /* Red */
+        }
+        
+        /* FOOTER */
+        .footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff;
+            padding: 15px;
+            border-top: 1px solid #ddd;
+            color: #555;
+            font-size: 14px;
+        }
